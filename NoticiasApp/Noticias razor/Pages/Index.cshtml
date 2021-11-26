@@ -1,0 +1,21 @@
+﻿@page
+@model Noticias_razor.Pages.IndexModel
+@{
+    ViewData["Title"] = "PAGINA DE NOTICIAS";
+}
+
+<div class="row" style="margin-top:5%">
+    @foreach (var item in Model.Not)
+    {
+        <div class="card card-body mt-3" style="width: 18rem;">
+            <img src="https://st2.depositphotos.com/3223379/5688/i/600/depositphotos_56880225-stock-photo-words-news.jpg" class="card-img-top" alt="Image the news" style="width: 40rem;" >
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                <p class="card-text"><small class="text-muted">Author: @Html.DisplayFor(modelItem => item.Autor)</small></p>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                <p class="card-text"><small class="text-muted">Date: @Html.DisplayFor(modelItem => item.Fecha)</small></p>
+                <a href="@Html.DisplayFor(modelItem => item.Link)" class="card-link">Ver mas...</a>
+            </div>
+        </div>
+    }
+</div>

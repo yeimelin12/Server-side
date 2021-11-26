@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ClassNoticias.Models.Paise>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Pagina de Paises</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMundialesNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMundialesNavigation.IdMundiales)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPais">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPais">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPais">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
